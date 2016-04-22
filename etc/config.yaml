@@ -1,0 +1,10 @@
+daemonize: true 
+
+switch:
+  172.31.26.191: "docker1"
+  172.31.0.207: "docker2"
+
+logstash_host: "172.31.1.210"
+logstash_port: 5000
+
+

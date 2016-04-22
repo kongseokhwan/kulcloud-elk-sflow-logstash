@@ -1,0 +1,9 @@
+daemonize: true 
+
+switch:
+  10.1.100.50: "iotgw"
+
+logstash_host: "10.1.100.50"
+logstash_port: 6543
+
+

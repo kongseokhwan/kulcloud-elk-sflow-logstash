@@ -1,0 +1,7 @@
+export COLLECTOR_IP=10.1.100.50
+export COLLECTOR_PORT=6343
+export AGENT_IP=eth0
+export HEADER_BYTES=128
+export SAMPLING_N=64
+export POLLING_SECS=10
+
