@@ -39,8 +39,8 @@ class SflowParser
                       "eth_dst" => eth_header.eth_dst,
                       "eth_protocol"=> eth_header.eth_type
                     }
-                  end
-                  @sflow.merge(sflow_eth);
+                    @sflow.merge(sflow_eth);        
+                  end          
                   ipv4 = IPv4Header.new(ip_packet)
                   sflow_ip = {
                     "ipv4_src" => ipv4.sndr_addr,
@@ -53,8 +53,7 @@ class SflowParser
                     "frame_length_multiplied" => rawpacket.frame_length.to_i * 
                                                                                 sflow_sample["sampling_rate"].to_i
                   }
-                  @sflow.merge!(sflow_frame)
-                  
+                  @sflow.merge!(sflow_frame)                                
                   if ipv4.protocol == 6
                     #sflow_frame = {"frame_length" => rawpacket.frame_length.to_i, "frame_length_multiplied" => rawpacket.frame_length.to_i * sflow_sample["sampling_rate"].to_i}
                     #@sflow.merge!(sflow_frame)
@@ -70,7 +69,6 @@ class SflowParser
                     }
                     @sflow.merge!(sflow_header)
                   end
-
                 end
               end
 
