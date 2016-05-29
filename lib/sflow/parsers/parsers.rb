@@ -4,8 +4,7 @@ class SflowParser
       header = Header.read(data)
       if header.version == 5 
         agent_address = IPAddr.new(header.agent_address, Socket::AF_INET).to_s
-        @sflow = {"agent_address" => $switch_hash[agent_address]}   # README: Mapping from configuration file("agent_address"<-->"host_name")
-
+        @sflow = {"agent_address" => $switch_hash[agent_address]}  
           header.flow_samples.each do |sample|
             if sample.sflow_sample_type == 3 or sample.sflow_sample_type ==  1
               sampledata = Sflow5sampleheader3.read(sample.sample_data) 
@@ -39,7 +38,7 @@ class SflowParser
                       "eth_dst" => eth_header.eth_dst,
                       "eth_protocol"=> eth_header.eth_type
                     }
-                    @sflow.merge(sflow_eth);        
+                    @sflow.merge!(sflow_eth);        
                   end          
                   ipv4 = IPv4Header.new(ip_packet)
                   sflow_ip = {
@@ -50,8 +49,7 @@ class SflowParser
                   
                   sflow_frame = {
                     "frame_length" => rawpacket.frame_length.to_i, 
-                    "frame_length_multiplied" => rawpacket.frame_length.to_i * 
-                                                                                sflow_sample["sampling_rate"].to_i
+                    "frame_length_multiplied" => rawpacket.frame_length.to_i * sflow_sample["sampling_rate"].to_i
                   }
                   @sflow.merge!(sflow_frame)                                
                   if ipv4.protocol == 6
