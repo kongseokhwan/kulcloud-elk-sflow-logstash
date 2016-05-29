@@ -26,12 +26,12 @@ class SflowParser
                   @sflow.merge!(sflow_switch)
                 elsif record.format == 1
                   rawpacket = Sflow5rawpacket.read(record.record_data)
-                  sflow_eth = {
-                      "eth_src" => eth_header.eth_src,
-                      "eth_dst" => eth_header.eth_dst,
-                      "eth_protocol"=> eth_header.eth_type
-                  }
-                  @sflow.merge!(sflow_eth);  
+                  #sflow_eth = {
+                  #   "eth_src" => eth_header.eth_src,
+                  #    "eth_dst" => eth_header.eth_dst,
+                  #   "eth_protocol"=> eth_header.eth_type
+                  #}
+                  #@sflow.merge!(sflow_eth);  
                   if rawpacket.header_protocol == 1 # Ethernet
                     eth_header = Sflow5rawpacketheaderEthernet.read(rawpacket.rawpacket_data.to_ary.join)
                     ip_packet = eth_header.ethernetdata.to_ary.join
