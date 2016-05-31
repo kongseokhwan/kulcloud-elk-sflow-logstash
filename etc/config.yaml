@@ -1,10 +1,9 @@
 daemonize: true 
 
 switch:
-  172.31.26.191: "docker1"
-  172.31.0.207: "docker2"
+  10.1.100.25: "pica8-1"
 
-logstash_host: "172.31.1.210"
+logstash_host: "10.1.190.25"
 logstash_port: 5000
 
 
