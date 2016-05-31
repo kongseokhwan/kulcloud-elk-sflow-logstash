@@ -35,7 +35,7 @@ class SflowParser
                     end
                   end
                   ipv4 = IPv4Header.new(ip_packet)
-                  sflow_ip = {"ipv4_src" => ipv4.sndr_addr,"ipv4_dst" => ipv4.dest_addr}
+                  sflow_ip = {"ipv4_src" => ipv4.sndr_addr,"ipv4_dst" => ipv4.dest_addr, "ipv4_protocol"=>ipv4.protocol}
                   @sflow.merge!(sflow_ip)
 
                   sflow_frame = {"frame_length" => rawpacket.frame_length.to_i, "frame_length_multiplied" => rawpacket.frame_length.to_i * sflow_sample["sampling_rate"].to_i}

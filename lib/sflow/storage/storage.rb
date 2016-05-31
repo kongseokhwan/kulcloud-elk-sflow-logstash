@@ -219,6 +219,7 @@ class SflowStorage
                   "vlan_dst" => "sflow_vlan_dst",
                   "ipv4_src" => "sflow_ipv4_src",
                   "ipv4_dst" => "sflow_ipv4_dst",
+                  "ipv4_protocol" => "sflow_ipv4_protocol",
                   "frame_length" => "sflow_frame_length",
                   "frame_length_multiplied" => "sflow_frame_length_multiplied",
                   "tcp_src_port" => "sflow_tcp_src_port",
