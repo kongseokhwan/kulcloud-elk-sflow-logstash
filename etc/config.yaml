@@ -2,6 +2,7 @@ daemonize: true
 
 switch:
   10.1.100.25: "pica8-1"
+  10.1.210.325: "pica8-2"
 
 logstash_host: "10.1.190.25"
 logstash_port: 5000
